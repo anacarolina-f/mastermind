@@ -93,4 +93,20 @@ public class MastermindTest {
 
         assertEquals(expectedResult, response);
     }
+
+    @Test
+    public void gameOverAfterExactMatch() {
+        char [] secretKey = {'R', 'B', 'G', 'Y'};
+        char [] playerResponseNoMatches = {'O', 'O', 'O', 'O'};
+        String expectedResult = "Game Over";
+
+        Game game = new Game(secretKey);
+        game.evaluate(secretKey); // player wins!
+
+        // player plays again...
+        String actualResult =  game.evaluate(playerResponseNoMatches);
+
+        // should get "Game Over"
+        assertEquals(expectedResult, actualResult);
+    }
 }

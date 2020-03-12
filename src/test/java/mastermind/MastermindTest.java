@@ -16,4 +16,17 @@ public class MastermindTest {
 
         assertEquals(expectedTip, actualTip);
     }
+
+    @Test
+    public void noMatch() {
+        char [] secretKey = {'R', 'B', 'G', 'Y'};
+        char [] playerResponse = {'W', 'M', 'C', 'O'};
+        String expectedTip = "";
+
+        Game game = new Game(secretKey);
+        String actualTip = game.evaluate(playerResponse);
+
+        assertEquals(expectedTip, actualTip);
+    }
+
 }

@@ -1,10 +1,16 @@
 package mastermind;
 
 public class Game {
+    char[] secretKey;
+
     public Game(char[] secretKey) {
+        this.secretKey = secretKey;
     }
 
     public String evaluate(char[] playerResponse) {
-        return "4R";
+        if (playerResponse.equals(secretKey)) {
+            return "4R";
+        }
+        return "";
     }
 }

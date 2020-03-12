@@ -29,4 +29,16 @@ public class MastermindTest {
         assertEquals(expectedTip, actualTip);
     }
 
+    @Test
+    public void oneMatchSameColorAndSamePosition() {
+        char [] secretKey = {'R', 'B', 'G', 'Y'};
+        char [] playerResponse = {'R', 'M', 'C', 'O'};
+        String expectedTip = "1R";
+
+        Game game = new Game(secretKey);
+        String actualTip = game.evaluate(playerResponse);
+
+        assertEquals(expectedTip, actualTip);
+    }
+
 }

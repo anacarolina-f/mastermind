@@ -8,9 +8,14 @@ public class Game {
     }
 
     public String evaluate(char[] playerResponse) {
-        if (playerResponse.equals(secretKey)) {
-            return "4R";
+        int fullMatch =0;
+        for (int i = 0; i < secretKey.length; i++) {
+            if(secretKey[i] == playerResponse[i]) {
+                fullMatch++;
+            }
         }
+        if(fullMatch >0) return String.format("%dR",fullMatch);
+
         return "";
     }
 }

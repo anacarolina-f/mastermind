@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Game {
     char[] secretKey;
+    int playersAttempt = 0;
     List<Character> secretList;
 
     public Game(char[] secretKey) {
@@ -17,6 +18,7 @@ public class Game {
     }
 
     public String evaluate(char[] playerResponse) {
+        playersAttempt++;
         int red =0;
         int[] matches = new int[4];
         for (int i = 0; i < secretKey.length; i++) {
@@ -32,6 +34,10 @@ public class Game {
                 white++;
             }
         }
+        if(playersAttempt > 10) {
+            return "Game Over";
+        }
+
         return String.format("%dR%dW", red, white);
     }
 }

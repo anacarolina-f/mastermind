@@ -64,4 +64,33 @@ public class MastermindTest {
 
         assertEquals(expectedTip, actualTip);
     }
+
+    @Test
+    public void getsTwoWhitesOneRed() {
+        char [] secretKey = {'R', 'B', 'G', 'Y'};
+        char [] playerResponse = {'G', 'B', 'R', 'O'};
+        String expectedTip = "1R2W";
+
+        Game game = new Game(secretKey);
+        String actualTip = game.evaluate(playerResponse);
+
+        assertEquals(expectedTip, actualTip);
+    }
+
+    @Test
+    public void playsTenTimesGameOver() {
+        char [] secretKey = {'R', 'B', 'G', 'Y'};
+        char [] playerResponse = {'G', 'B', 'R', 'O'};
+        String expectedResult = "Game Over";
+
+        Game game = new Game(secretKey);
+
+        for (int i = 0; i < 10; i++) {
+            game.evaluate(playerResponse);
+        }
+
+       String response = game.evaluate(playerResponse);
+
+        assertEquals(expectedResult, response);
+    }
 }
